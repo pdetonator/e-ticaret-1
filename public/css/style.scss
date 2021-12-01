@@ -406,8 +406,24 @@ section#products {
             }
         }
     .forms {
-        display: flex;
-        flex-shrink: 0;
+        .validation__errors {
+            border-radius: 4px;
+            width: 100%;
+            max-width: 400px;
+            margin: 15px auto;
+            background: #002556;
+            ul {
+                padding: 20px;
+                li {
+                    color: #fff;
+                    list-style-type: circle;
+                    margin: 0 10px;
+                    padding: 5px 0;
+                    font-weight: 500;
+                    font-size: 13px;
+                }
+            }
+        }
     }
     width: 100%;
     max-width: 600px;
@@ -431,6 +447,12 @@ section#products {
                     border-bottom: 3px solid #002556;
                     font-weight: 500;
                     color: #002556;
+                }
+                a {
+                    color: #002556;
+                    display: block;
+                    height: 100%;
+                    width: 100%;
                 }
             }
         }

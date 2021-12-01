@@ -1,4 +1,3 @@
-    <?php print_r ($products); ?>
     <div class="body">
         <section id="slider" class="py-4">
             <div class="container">

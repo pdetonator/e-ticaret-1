@@ -417,10 +417,10 @@ class CI_Session {
 				}
 				// Hacky, but 'old' will (implicitly) always be less than time() ;)
 				// DO NOT move this above the 'new' check!
-				elseif ($value < $current_time)
-				{
-					unset($_SESSION[$key], $_SESSION['__ci_vars'][$key]);
-				}
+                elseif ($value === 'old' || $value < $current_time)
+                {
+                    unset($_SESSION[$key], $_SESSION['__ci_vars'][$key]);
+                }
 			}
 
 			if (empty($_SESSION['__ci_vars']))

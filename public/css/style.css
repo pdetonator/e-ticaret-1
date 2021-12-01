@@ -398,9 +398,23 @@ section#products .products .product .product__bottom .product__price p span {
 .container-fluid.form-container .user__form .register__form.active {
   display: block;
 }
-.container-fluid.form-container .user__form .forms {
-  display: flex;
-  flex-shrink: 0;
+.container-fluid.form-container .user__form .forms .validation__errors {
+  border-radius: 4px;
+  width: 100%;
+  max-width: 400px;
+  margin: 15px auto;
+  background: #002556;
+}
+.container-fluid.form-container .user__form .forms .validation__errors ul {
+  padding: 20px;
+}
+.container-fluid.form-container .user__form .forms .validation__errors ul li {
+  color: #fff;
+  list-style-type: circle;
+  margin: 0 10px;
+  padding: 5px 0;
+  font-weight: 500;
+  font-size: 13px;
 }
 .container-fluid.form-container .user__form .form__links {
   border-bottom: 1px solid #eee;
@@ -420,6 +434,12 @@ section#products .products .product .product__bottom .product__price p span {
   border-bottom: 3px solid #002556;
   font-weight: 500;
   color: #002556;
+}
+.container-fluid.form-container .user__form .form__links ul li a {
+  color: #002556;
+  display: block;
+  height: 100%;
+  width: 100%;
 }
 .container-fluid.form-container .user__form .input__group {
   width: 100%;
