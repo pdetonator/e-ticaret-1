@@ -46,7 +46,7 @@
 
                         if ( $this -> user -> add ($user_data)) {
 
-                            $this -> session -> set_flashdata ('msg_succes', 'Kayıt başarılı, Lütfen giriş yapınız.');
+                            $this -> session -> set_flashdata ('msg_succes', '<li>Kayıt başarılı, Lütfen giriş yapınız.</li>');
 
                             redirect (base_url('giris-yap'));
 

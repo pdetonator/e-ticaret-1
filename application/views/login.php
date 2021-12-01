@@ -12,6 +12,13 @@
                 </ul>
             </div>
             <div class="forms">
+                <?php if ( $this -> session -> flashdata ('msg_succes')) : ?>
+                <div class="validation__errors">
+                    <ul>
+                        <?=$this -> session -> flashdata ('msg_succes');?>
+                    </ul>
+                </div>
+                <?php endif; ?>
                 <div class="login__form form__user active">
                     <form action="" method="post">
                         <div class="input__group">
