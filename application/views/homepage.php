@@ -1,3 +1,4 @@
+    <?php print_r ($products); ?>
     <div class="body">
         <section id="slider" class="py-4">
             <div class="container">
@@ -44,26 +45,28 @@
                     </div>
                 </div>
                 <div class="products">
+                    <?php foreach ($products as $product) : ?>
                     <div class="product">
                         <div class="product__header">
                             <div class="product__image">
-                                <a href="#">
-                                    <img src="https://cdn.vatanbilgisayar.com/Upload/PRODUCT/asus/thumb/127301-3_small.jpg" alt="">
+                                <a href="<?=base_url($product -> productUrl);?>">
+                                    <img src="<?=base_url('public/uploads/' . $product -> productImage);?>" alt="">
                                 </a>
                             </div>
-                            <div class="product__code">
-                                <a href="#">PFOEFO-3XR4</a>
+                            <div class="product__code py-2">
+                                <a href="<?=base_url($product -> productUrl);?>"><?=$product -> categoryName?> / <?=$product -> productID?></a>
                             </div>
                             <div class="product__title">
-                                <a href="#">Xiaomi Poco X3 PRO 128 Gb Akıllı Telefon Mavi</a>
+                                <a href="<?=base_url($product -> productUrl);?>"><?=$product -> productName;?></a>
                             </div>
                         </div>
                         <div class="product__bottom">
                             <div class="product__price">
-                                <p>17.999<span>TL</span></p>
+                                <p><?=number_format($product -> productPrice, 2, ',', '.')?><span>TL</span></p>
                             </div>
                         </div>
                     </div>
+                    <?php endforeach; ?>
                 </div>
             </div>
         </section>
