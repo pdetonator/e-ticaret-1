@@ -1,3 +1,4 @@
+
     <div class="body">
         <section id="slider" class="py-4">
             <div class="container">
@@ -114,6 +115,7 @@
         </section>
     </div>
     <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="<?=base_url('public/js/index.js')?>"></script>
     <script>
         const bestSeller = new Swiper('.swiper.top-seller', {
@@ -123,5 +125,15 @@
             spaceBetween: 20,
         });
     </script>
+    <?php if ($this -> session -> flashdata ('login_success')) : ?>
+    <script>
+        Swal.fire ({
+            title: 'Hoşgeldin!',
+            text: 'Hesabına giriş yaptın, alışverişe başlayabilirsin.',
+            icon: 'success',
+            confirmButtonText: 'TAMAM'
+        });
+    </script>
+    <?php endif; ?>
     </body>
     </html>
