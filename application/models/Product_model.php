@@ -50,6 +50,11 @@
 
         }
 
+        /**
+         * @param $where
+         * @return mixed
+         */
+
         public function get_images ($where)
         {
 
