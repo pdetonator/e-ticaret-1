@@ -10,6 +10,8 @@
 
             $this -> load -> model ('User_model', 'user');
 
+            $this -> load -> helper ('date');
+
             $this -> load -> library ('form_validation');
 
         }
@@ -69,7 +71,53 @@
         public function login ()
         {
 
+            if ( $this -> input -> method ('REQUEST_METHOD') == 'POST') {
 
+                if ( $this -> input -> post ( $this -> security -> get_csrf_token_name ()) == $this -> security -> get_csrf_hash ()) {
+
+                    $this -> form_validation -> set_rules ('user-email', 'E-posta adresiniz', 'required|trim|valid_email');
+
+                    $this -> form_validation -> set_rules ('user-password', 'Şifreniz', 'required|trim');
+
+                    if ( $this -> form_validation -> run () == TRUE) {
+
+                        $user_data = html_escape ($this -> security -> xss_clean (array (
+                            'userEmail' => $this -> input -> post ('user-email'),
+                            'userPassword' => md5($this -> input -> post ('user-password'))
+                        )));
+
+                        if ( $this -> user -> is_exist ($user_data)) {
+
+                            $user = $this -> user -> get ($user_data);
+
+                            $this -> session -> set_userdata ('login', array (
+                                'userID' => $user -> userID,
+                                'entryDate' => mdate("%Y-%m-%d %h:%i %a")
+                            ));
+
+                            $this -> session -> set_flashdata ('login_success', true);
+
+                            redirect (base_url());
+
+                        }else {
+
+                            $this -> session -> set_flashdata ('msg_error', '<li>E-posta adresi veya şifreniz hatalı.</li>');
+
+                            redirect (base_url('giris-yap'));
+
+                        }
+
+                    }else {
+
+                        $this -> session -> set_flashdata ('msg_error', validation_errors('<li>', '</li>'));
+
+                        redirect (base_url('giris-yap'));
+
+                    }
+
+                }
+
+            }
 
         }
 
