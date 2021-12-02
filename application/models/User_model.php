@@ -24,6 +24,17 @@
 
         }
 
+        public function get ($where)
+        {
+
+            $user = $this -> db
+                          -> get_where ($this -> table_name, $where)
+                          -> row ();
+
+            return $user;
+
+        }
+
         public function is_exist ($where)
         {
 
