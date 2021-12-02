@@ -620,8 +620,8 @@ section#products .products .product .product__bottom .product__price p span {
   width: 40%;
 }
 .product__inner .inner_left .swiper {
-  padding-bottom: 100px;
-  position: relative;
+  padding-bottom: 180px;
+  overflow: hidden;
 }
 .product__inner .inner_left .swiper .swiper-pagination {
   display: flex;
