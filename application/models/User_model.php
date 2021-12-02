@@ -24,6 +24,18 @@
 
         }
 
+        public function is_exist ($where)
+        {
+
+            $user = $this -> db
+                          -> get_where ($this -> table_name, $where);
+
+            if ( $user -> num_rows () > 0 ) return true;
+
+            return false;
+
+        }
+
     }
 
 ?>
