@@ -33,6 +33,18 @@
 
         }
 
+        public function is_exist ($where)
+        {
+
+            $product = $this -> db
+                             -> get_where ($this -> table_name, $where);
+
+            if ( $product -> num_rows () > 0) return true;
+
+            return false;
+
+        }
+
     }
 
 ?>
