@@ -39,6 +39,28 @@
 
         }
 
+        public function get_options ($where)
+        {
+
+            $options = $this -> db
+                             -> get_where ('product_options', $where)
+                             -> result ();
+
+            return $options;
+
+        }
+
+        public function get_images ($where)
+        {
+
+            $options = $this -> db
+                -> get_where ('product_slides', $where)
+                -> result ();
+
+            return $options;
+
+        }
+
         public function is_exist ($where)
         {
 
