@@ -29,7 +29,13 @@
         public function get ($where = array ())
         {
 
+            $product = $this -> db
+                             -> join ('categories', 'categoryID = productCategory', 'inner')
+                             -> get_where ($this -> table_name, $where)
+                             -> row ();
 
+
+            return $product;
 
         }
 
