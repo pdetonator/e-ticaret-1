@@ -54,3 +54,4 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 $route['kayit-ol'] = 'register';
 $route['giris-yap'] = 'login';
+$route['sepet'] = 'basket';
